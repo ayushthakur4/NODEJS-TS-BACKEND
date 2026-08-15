@@ -3,7 +3,7 @@ import type { Request, Response, Express } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors'
 import { connect } from 'http2';
-import connectDb from "../utils/db.ts";
+import connectDb from './utils/db.js';
 
 
 dotenv.config();
