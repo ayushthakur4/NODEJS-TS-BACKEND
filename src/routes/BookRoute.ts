@@ -1,9 +1,12 @@
-import{Router,Request,Response} from "express"
+import { Router } from "express";
+import { getBooks, addBook } from "../controllers/bookController.js";
 
-const bookrouter = Router();
+const bookRouter = Router();
 
-bookrouter.get("/get-books",( req : Request,res:Response) =>{
-    return res.json({ success : false , message : "No Books   founf in record" });
-})
+// GET all books
+bookRouter.get("/get-books", getBooks);
 
-export default bookrouter; 
+// POST add a new book
+bookRouter.post("/add-book", addBook);
+
+export default bookRouter;
