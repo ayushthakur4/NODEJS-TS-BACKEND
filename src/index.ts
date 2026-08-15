@@ -4,11 +4,9 @@ import dotenv from 'dotenv';
 import cors from 'cors'
 import { connect } from 'http2';
 import connectDb from './utils/db.js';
-
+import bookrouter from './routes/BookRoute.js';
 
 dotenv.config();
-
-
 
 const app: Express = express();
 
@@ -22,6 +20,8 @@ connectDb();
 app.use(cors({
     origin: process.env.HOST_URL ||"*"
 }));
+
+app.use("/api",bookrouter);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello Ayush');
